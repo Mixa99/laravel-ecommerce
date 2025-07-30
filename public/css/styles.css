@@ -35,7 +35,7 @@ html, body {
 .content-size {
     max-width: 60vw;
     padding: 0 20vw;
-    background-color: #f8f9fa;
+    background-color: rgb(var(--white));
     border-radius: 8px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
     margin-top: 10px;

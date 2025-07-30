@@ -45,7 +45,7 @@
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 15px;
-    background-color: rgb(var(--white));
+    background-color: rgb(var(--background-light));
     border-color: rgb(var(--border-dark));
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(var(--black), 0.1);
@@ -54,7 +54,7 @@
 
 .product-card {
     position: relative;
-    background-color: rgba(var(--background-light), .7);
+    background-color: rgba(var(--white), .7);
     height: auto;
     min-height: 320px;
     border-radius: 10px;
@@ -81,7 +81,7 @@
     position: absolute;
     right: 15px;
     bottom: 15px;
-    background-color: rgba(var(--primary-color), .7); ; 
+    background-color: rgba(var(--primary-color), .9); ; 
     color: rgb(var(--white));
     padding: 10px 20px;
     border-radius: 5px;

@@ -160,7 +160,7 @@
 }
 
 .transparent-background .login-button:hover {
-    background-color: rgba(14, 70, 100, .3);
+    background-color: rgba(var(--primary-color));
     color: black;
 }
 
@@ -202,7 +202,7 @@
 }
 
 .white-background .login-button:hover {
-    background-color: rgba(14, 70, 100, .3);
+    background-color: rgba(var(--primary-color));
     color: black;
 }
 

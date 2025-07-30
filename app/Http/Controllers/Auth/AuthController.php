@@ -13,42 +13,6 @@ use Illuminate\Support\Facades\Validator;
 
 class AuthController extends Controller
 {
-
-    // public function apiRegister(RegisterRequest $request){
-    //     $userData = [
-    //         'name' => $request->name,
-    //         'role_id'=> 2,
-    //         'email' => $request->email,
-    //         'password' => Hash::make($request->password),
-    //     ];
-    //     $user = User::create($userData);
-    //     $token = $user->createToken('my-app');
-    
-        
-    //     return response()->json([
-    //         'user' => $user,
-    //         'token' => $token->plainTextToken
-    //     ]);   
-        
-    // }
-
-    // public function apiLogin(LoginRequest $request){
-    //     $user = User::where('email', $request->email)->first();
-
-    //     if(!$user || !Hash::check($request->password, $user->password)){
-    //         return response()->json([
-    //             'message' => 'Invalid credentials'
-    //         ], 422);
-    //     }
-
-    //     $token = $user->createToken('my-app')->plainTextToken;
-
-    //     return response()->json([
-    //         'user' => $user,
-    //         'token' => $token,
-    //     ], 201);
-    // }
-
     public function index(){
         $user = Auth::user();
         return response()->json([
@@ -64,15 +28,15 @@ class AuthController extends Controller
             'password' => Hash::make($request->password),
         ]);
 
-        return redirect('/login_form');
+        return redirect('/login_form')->with('success', 'Uspešno keriran nalog');
     }
 
     public function login(LoginRequest $request){
         $credentials = request(['email', 'password']);
         if(Auth::guard('web')->attempt($credentials)){
-            return redirect('/');
+            return redirect('/')->with('success', 'Uspešno Ste ulogovani');
         } else {
-            return redirect()->back()->with('error', 'Wrong credentials');
+            return redirect()->back()->with('error', 'Pogrešni kredencijali');
         }
     }
 

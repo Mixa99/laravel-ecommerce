@@ -4,7 +4,6 @@
     color: rgb(var(--white)); /* Svetli tekst */
     padding: 40px 20px; /* Unutrašnji padding */
     text-align: center; /* Centriranje sadržaja */
-    margin-top: 50px; /* Razmak iznad footera, ako želite da se odvoji od prethodnog sadržaja */
 }
 
 .contact-section {
