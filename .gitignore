@@ -2,7 +2,7 @@
 /node_modules
 /public/build
 /public/hot
-!public/storage/product-img/*
+!public/storage/product-img
 /storage/*.key
 /storage/pail
 /vendor
