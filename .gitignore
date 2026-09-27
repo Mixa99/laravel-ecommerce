@@ -3,7 +3,7 @@
 /public/build
 /public/hot
 !public/storage/product-img/*
-!storage/app/public/img/*
+!public/storage/img/*
 /storage/*.key
 /storage/pail
 /vendor
