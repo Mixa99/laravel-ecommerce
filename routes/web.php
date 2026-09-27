@@ -28,6 +28,8 @@ Route::controller(ProductController::class)->group(function(){
     Route::get('/products/show/{id}', 'show')->name('product.show');
     Route::post('/product/store', 'store')->name('product.store');
     Route::get('/products/add', 'storeView')->name('product.storeView');
+    //Route::get('/product/search', 'showProductsFilteredFromCache')->name('product.search');
+    Route::get('/product/search', 'search')->name('product.search.vulnearble');
 });
 
 // Comment Controller
@@ -48,29 +50,3 @@ Route::controller(CartController::class)->group(function(){
     //Route::post('cart/remove', 'removeFromCart')->name('cart.remove');
     Route::get('cart/remove/{id}', 'remove')->name('cart.remove');
 });
-
-
-// *************** VAZNO ***************
-// Potrebno je testirati sve api endpointe *CHECKED*
-// Potrebno je proveriti sve funkcionalnosti što se 
-// tiče web razvoja i ako je potrebno izbrisati neke metode iz controllera *CHECKED*
-// Potrebno je srediti web.php fajl *CHECKED*
-
-// Srediti URL da se ne vidi id
-// Srediti sve linkove i slicne stvari da se ne vidi id nigde i to moze
-// da bude reseno enkripcijom
-
-// Potrebno odraditi middleware za admina i primeniti ga na navigaciju *CHECKED*
-// Potrebno obnoviti Migracije, Seeds, Gate, Middleware, Requests 
-
-// Novi zahtevi
-// Potrebno je kreirati novi projekat sa bazom podataka kao apiLaravel projekat koji sam pravio (dodatna tabela Role) *CHECKED*
-// Kreirati migracije, modele, kontrolere, request fajlove, web fajlove *CHECKED*
-// Poenta svega ovoga je da bi se proveravala Rola korisnika za link u navigaciji kao npr. ('addProduct' koji ima Admin, ali nema korisnik) *CHECKED*
-// Potrebno je napraviti da proizvodi u korpi mogu da se check-iraju
-// Potrebno je povezati da check-irani proizvodi budu kreirani kao Order
-// Nakon toga samo odraditi dizajn za Orders i Cart 
-// I projekat je gotov
-
-// Pre svega pokrenuti projekat i proveriti sve endpointove, zapravo testirati ih
-// Nakon toga moze se krenuti sa daljim radom i cekirati jedno po jedno

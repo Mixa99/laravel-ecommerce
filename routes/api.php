@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::group([
     'middleware'=>'api',
-    'prefix'=>'auth'
+    'prefix'=>'authh'
 ], function($router){
     Route::post('register', [AuthController::class, 'apiRegister']);
     Route::post('login', [AuthController::class, 'apiLogin']);

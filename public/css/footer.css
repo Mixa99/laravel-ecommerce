@@ -1,7 +1,7 @@
 
 .container-footer {
-    background-color: rgb(var(--primary-color)); /* Tamna pozadina za ceo footer */
-    color: rgb(var(--white)); /* Svetli tekst */
+    background-color: rgb(var(--background-light)); /* Tamna pozadina za ceo footer */
+    color: rgb(var(--background-dark)); /* Svetli tekst */
     padding: 40px 20px; /* Unutrašnji padding */
     text-align: center; /* Centriranje sadržaja */
 }
@@ -15,7 +15,7 @@
 }
 
 .contact-section h2 {
-    color: rgb(var(--text-light)); /* Beli naslov na tamnoj pozadini */
+    color: rgb(var(--text-dark)); /* Beli naslov na tamnoj pozadini */
     font-size: 2.5em;
     margin-bottom: 20px;
     position: relative;
@@ -30,7 +30,7 @@
     transform: translateX(-50%);
     width: 60px;
     height: 3px;
-    background-color: rgb(var(--text-light)); /* Plava linija ispod naslova */
+    background-color: rgb(var(--black)); /* Plava linija ispod naslova */
     border-radius: 2px;
 }
 
@@ -42,8 +42,8 @@
 
 .contact-button {
     display: inline-block; /* Omogućava padding i margin */
-    background-color: rgb(var(--text-light));
-    color: rgb(var(--background-dark));
+    background-color: rgb(var(--background-dark));
+    color: rgb(var(--white));
     padding: 12px 30px;
     border-radius: 5px;
     text-decoration: none; /* Uklanja podvlačenje linka */
@@ -54,7 +54,8 @@
 }
 
 .contact-button:hover {
-    background-color: rgb(var(--border-light));
+    background-color: rgb(var(--text-light));
+    color: rgb(var(--black));
 }
 
 .copyright {
@@ -63,7 +64,7 @@
     align-items: center; /* Centriraj horizontalno */
     margin-top: 30px; /* Razmak iznad copyright sekcije */
     padding-top: 20px; /* Padding unutar copyright sekcije */
-    border-top: 1px solid rgba(var(--black), 0.1); /* Suptilna linija iznad copyright-a */
+    border-top: 3px solid rgba(var(--black), 0.2); /* Suptilna linija iznad copyright-a */
     width: 100%; /* Zauzima celu širinu roditelja */
 }
 

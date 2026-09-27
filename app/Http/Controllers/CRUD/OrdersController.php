@@ -8,15 +8,17 @@ use App\Models\Order;
 use App\Models\OrderItem;
 use App\Models\Product;
 use Carbon\Carbon;
+use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 use function Pest\Laravel\json;
 
 class OrdersController extends Controller
 {
     public function apiShow($id){
-        $order = Order::find($id)->with('items.product')->get();
+        $order = Order::with('items.product')->find($id);
         if($order){
             return response()->json(['message' => $order]);
         } else {
@@ -42,7 +44,7 @@ class OrdersController extends Controller
             if($product->quantity >= $p['quantity']){
                 $product->quantity -= $p['quantity'];
             } else {
-                $order->delete;
+                $order->delete();
                 return response()->json(['message' => 'There is no products left']);
             }
             $product->save(); 
@@ -118,7 +120,7 @@ class OrdersController extends Controller
             if($product->quantity >= $p['quantity']){
                 $product->quantity -= $p['quantity'];
             } else {
-                $order->delete;
+                $order->delete();
                 return back()->withErrors('There is no products left.');
             }
             $product->save(); 
@@ -143,38 +145,46 @@ class OrdersController extends Controller
         }
 
         $cart = collect(session('cart', []));
-
         $productsToPay = $cart->whereIn('id', $selectedIds)->values();
 
         if($productsToPay->isEmpty()){
             return back()->withErrors('Izabrani proizvodi nisu prona]eni u korpi.');
         }
 
-        $order = new Order();
-        $order->user_id = Auth::user()->id;
-        $order->date_of_delivery = Carbon::now("Europe/Belgrade")->addDays(5)->format('Y-m-d');
-        $order->save();
-        $order = Order::where('user_id', Auth::user()->id)->orderBy('created_at', 'desc')->first(); 
-        $totalPrice = 0;
-        
-        foreach($productsToPay as $p){
-            $product = Product::find($p['id']);
-            if($product->quantity >= $p['quantity']){
+        try{
+            DB::transaction(function() use ($productsToPay, $selectedIds) { 
+            $order = new Order();
+            $order->user_id = Auth::user()->id;
+            $order->date_of_delivery = Carbon::now("Europe/Belgrade")->addDays(5)->format('Y-m-d');
+            $order->save();
+
+            $totalPrice = 0;
+
+            foreach($productsToPay as $p){
+                $product = Product::find($p['id']);
+
+                if($product->quantity < $p['quantity']){
+                    throw new \Exception('There is no products left.');
+                }
+
                 $product->quantity -= $p['quantity'];
-            } else {
-                $order->delete;
-                return back()->withErrors('There is no products left.');
+                $product->save();
+
+                $totalPrice += $product->price * $p['quantity'];
+
+                $order_item = new OrderItem();
+                $order_item->order_id = $order->id;
+                $order_item->product_id = $product->id;
+                $order_item->quantity = $p['quantity'];
+                $order_item->save();
             }
-            $product->save(); 
-            $totalPrice += $product->price * $p['quantity'];
-            $order_item = new OrderItem();
-            $order_item->order_id = $order->id;
-            $order_item->product_id = $product->id;
-            $order_item->quantity = $p['quantity'];
-            $order_item->save();
+
+            $order->total_price = $totalPrice;
+            $order->save();
+        });
+        } catch (Exception $e){
+            return back()->withErrors($e->getMessage());
         }
-        $order->total_price = $totalPrice;
-        $order->save();
 
         $updatedCart = $cart->reject(fn($item) => in_array($item['id'], $selectedIds))->values();
         session(['cart' => $updatedCart]);

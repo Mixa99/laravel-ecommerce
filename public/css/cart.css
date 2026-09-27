@@ -137,6 +137,7 @@ h1.page-title::after {
     width: 100%;
     padding: 15px 20px;
     margin-top: 30px;
+    margin-bottom: 30px;
     background-color: rgb(var(--primary-color));
     color: rgb(var(--white));
     border: none;

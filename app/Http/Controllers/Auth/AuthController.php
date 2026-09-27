@@ -34,7 +34,7 @@ class AuthController extends Controller
     public function login(LoginRequest $request){
         $credentials = request(['email', 'password']);
         if(Auth::guard('web')->attempt($credentials)){
-            return redirect('/')->with('success', 'Uspešno Ste ulogovani');
+            return redirect('/');
         } else {
             return redirect()->back()->with('error', 'Pogrešni kredencijali');
         }

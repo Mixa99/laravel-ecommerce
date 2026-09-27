@@ -55,7 +55,6 @@
     order: 3;
     position: relative;
     display: inline-block;
-    
 }
 
 .user-dropdown-content {
@@ -71,10 +70,12 @@
     border-radius: 0 0 0 10px;
     box-shadow: 0 6px 10px rgba(0, 0, 0, 0.1);
     border-top: 2px solid rgba(0, 0, 0, 0.3);
+    transition: 1s ease-in-out;
 }
 
 .user-dropdown:hover .user-dropdown-content {
     display: block;
+    transition: opacity 0.8s ease-in-out, visibility 0.8s ease-in-out;
 }
 
 .user-dropdown-content a,
@@ -82,12 +83,14 @@
     color: black;
     padding: 10px 15px;
     display: block;
+    transition: opacity 0.8s ease-in-out, visibility 0.8s ease-in-out;
 }
 
 .user-dropdown-content a:hover {
     display: inline-block;
     background-color: cyan;
     right: 0;
+    transition: opacity 0.8s ease-in-out, visibility 0.8s ease-in-out;
 }
 
 .logout-button {

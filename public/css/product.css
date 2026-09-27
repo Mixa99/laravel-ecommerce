@@ -348,6 +348,56 @@
     font-size: 1.5em;
 }
 
+.search-bar-container {
+    
+    margin: 30px auto; /* Centriranje i razmak od ivica */
+    position: relative;
+    display: flex;
+    align-items: center;
+    border: 3px solid rgba(var(--primary-color), .7);
+    border-radius: 35px;
+    background-color: var(--card-background); /* Koristi belu pozadinu iz varijabli */
+    box-shadow: 0 4px 10px var(--shadow-color); /* Blaga senka */
+    padding: 10px 20px;
+}
+
+.search-input {
+    width: 100%;
+    border: none;
+    outline: none; /* Uklanja plavi okvir na fokus */
+    padding: 8px 10px;
+    font-size: 1.1em;
+    color: rgb(var(--primary-color)); /* Boja teksta iz varijabli */
+    background: transparent; /* Da pozadina inputa bude ista kao kontejner */
+}
+
+.search-input::placeholder {
+    color: rgb(var(--secondary-color));
+    opacity: 0.7;
+}
+
+.search-icon {
+    font-size: 1.4em;
+    color: rgb(var(--primary-color));
+    margin-left: 10px;
+}
+
+.empty-product-list {
+    text-align: center;
+    font-size: 1.2em;
+    color: rgb(var(--border-dark));
+    background-color: rgb(var(--background-light));
+    border-color: rgb(var(--border-dark));
+    padding: 50px 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);;
+}
+
+.search-button{
+    border: none;
+    background: none;
+}
+
 @media (max-width: 768px) {
     .product-container {
         grid-template-columns: repeat(2, 1fr);
@@ -396,6 +446,19 @@
         width: 100%; /* Dugmad zauzimaju celu širinu */
         max-width: 250px; /* Ograniči maksimalnu širinu */
         margin: 0 auto; /* Centriraj */
+    }
+
+    .search-bar-container {
+        margin: 20px 15px; /* Manji margin na manjim ekranima */
+        padding: 8px 15px;
+    }
+
+    .search-input {
+        font-size: 1em;
+    }
+
+    .search-icon {
+        font-size: 1.2em;
     }
 }
 
