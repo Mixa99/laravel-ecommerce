@@ -1,0 +1,145 @@
+<?php
+
+namespace Database\Seeders;
+
+use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
+
+class ProductSeeder extends Seeder
+{
+    public function run(): void
+    {
+        DB::table('products')->insert([
+            [
+                'id' => 1,
+                'name' => 'Xiaomi Redmi Note 13 pro plus',
+                'path' => 'storage/product-img/Xiaomi Redmi Note 13 pro plus.jpg',
+                'price' => 54990,
+                'category' => 'PRVA KLASA',
+                'quantity' => 500,
+                'created_at' => '2024-12-09 11:18:29',
+                'updated_at' => '2024-12-09 11:18:29',
+            ],
+            [
+                'id' => 2,
+                'name' => 'Apple iPhone 14 plus',
+                'path' => 'storage/product-img/Apple iPhone 14 plus.jpg',
+                'price' => 104999,
+                'category' => 'PRVA KLASA',
+                'quantity' => 498,
+                'created_at' => '2024-12-09 11:20:09',
+                'updated_at' => '2024-12-09 11:32:28',
+            ],
+            [
+                'id' => 3,
+                'name' => 'DELL 27 IPS S2722DC Monitor',
+                'path' => 'storage/product-img/DELL 27 IPS S2722DC Monitor.jpg',
+                'price' => 29990,
+                'category' => 'DRUGA KLASA',
+                'quantity' => 800,
+                'created_at' => '2024-12-09 11:20:38',
+                'updated_at' => '2024-12-09 11:20:38',
+            ],
+            [
+                'id' => 4,
+                'name' => 'Dell Inspiron 14 plus',
+                'path' => 'storage/product-img/Dell Inspiron 14 plus.jpg',
+                'price' => 75000,
+                'category' => 'DRUGA KLASA',
+                'quantity' => 300,
+                'created_at' => '2024-12-09 11:21:01',
+                'updated_at' => '2024-12-09 11:21:01',
+            ],
+            [
+                'id' => 5,
+                'name' => 'Honor Magic 6',
+                'path' => 'storage/product-img/Honor Magic 6.jpg',
+                'price' => 29990,
+                'category' => 'DRUGA KLASA',
+                'quantity' => 500,
+                'created_at' => '2024-12-09 11:21:24',
+                'updated_at' => '2024-12-09 11:21:24',
+            ],
+            [
+                'id' => 6,
+                'name' => 'HP 250 G8',
+                'path' => 'storage/product-img/HP 250 G8.jpg',
+                'price' => 54290,
+                'category' => 'DRUGA KLASA',
+                'quantity' => 499,
+                'created_at' => '2024-12-09 11:21:52',
+                'updated_at' => '2024-12-09 11:32:28',
+            ],
+            [
+                'id' => 7,
+                'name' => 'Huawei Nova 12i',
+                'path' => 'storage/product-img/Huawei Nova 12i.jpg',
+                'price' => 37990,
+                'category' => 'DRUGA KLASA',
+                'quantity' => 800,
+                'created_at' => '2024-12-09 11:22:18',
+                'updated_at' => '2024-12-09 11:22:18',
+            ],
+            [
+                'id' => 8,
+                'name' => 'Huawei Pura 70 Ultra',
+                'path' => 'storage/product-img/Huawei Pura 70 Ultra.jpg',
+                'price' => 184990,
+                'category' => 'PRVA KLASA',
+                'quantity' => 250,
+                'created_at' => '2024-12-09 11:22:50',
+                'updated_at' => '2024-12-09 11:22:50',
+            ],
+            [
+                'id' => 9,
+                'name' => 'Lenovo ThinkBook 16',
+                'path' => 'storage/product-img/Lenovo ThinkBook 16.jpg',
+                'price' => 105990,
+                'category' => 'PRVA KLASA',
+                'quantity' => 300,
+                'created_at' => '2024-12-09 11:23:15',
+                'updated_at' => '2024-12-09 11:23:15',
+            ],
+            [
+                'id' => 10,
+                'name' => 'Philips 75pus7608',
+                'path' => 'storage/product-img/Philips 75pus7608.jpg',
+                'price' => 64990,
+                'category' => 'DRUGA KLASA',
+                'quantity' => 500,
+                'created_at' => '2024-12-09 11:23:44',
+                'updated_at' => '2024-12-09 11:23:44',
+            ],
+            [
+                'id' => 11,
+                'name' => 'Samsung Galaxy S23',
+                'path' => 'storage/product-img/Samsung galaxy s23.jpg',
+                'price' => 62990,
+                'category' => 'DRUGA KLASA',
+                'quantity' => 600,
+                'created_at' => '2024-12-09 11:24:18',
+                'updated_at' => '2024-12-09 11:24:18',
+            ],
+            [
+                'id' => 12,
+                'name' => 'Sony KD50X75WLPAEP',
+                'path' => 'storage/product-img/sony KD50X75WLPAEP.jpg',
+                'price' => 95990,
+                'category' => 'PRVA KLASA',
+                'quantity' => 600,
+                'created_at' => '2024-12-09 11:24:53',
+                'updated_at' => '2024-12-09 11:24:53',
+            ],
+            [
+                'id' => 13,
+                'name' => 'TCL 43p635',
+                'path' => 'storage/product-img/TCL 43p635.jpg',
+                'price' => 38990,
+                'category' => 'TRECA KLASA',
+                'quantity' => 1000,
+                'created_at' => '2024-12-09 11:25:25',
+                'updated_at' => '2024-12-09 11:25:25',
+            ],
+        ]);
+    }
+}
